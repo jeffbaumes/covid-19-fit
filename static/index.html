@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <title>sift</title>
+    <style>
+:root {
+  --line-height: 1.5;
+  --font-size: 12px;
+  --spacing: 1rem;
+  --typography-spacing-vertical: 1.5rem;
+  --form-element-spacing-vertical: 0.75rem;
+}
+@media (min-width: 576px) {
+  :root {
+    --font-size: 12px;
+  }
+}
+@media (min-width: 768px) {
+  :root {
+    --font-size: 12px;
+  }
+}
+@media (min-width: 992px) {
+  :root {
+    --font-size: 12px;
+  }
+}
+@media (min-width: 1200px) {
+  :root {
+    --font-size: 12px;
+  }
+}
+
+/* From https://every-layout.dev/layouts/sidebar/ */
+
+.with-sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.with-sidebar > :first-child {
+  flex-basis: 250px;
+  flex-grow: 1;
+}
+
+.with-sidebar > :last-child {
+  flex-basis: 0;
+  flex-grow: 999;
+  min-width: 50%;
+}
+
+    </style>
+  </head>
+  <body>
+    <main class="container-fluid">
+      <h1>Covid-19 fit</h1>
+      <div class="with-sidebar">
+        <div id="controls"></div>
+        <div>
+          <div id="cases-chart"></div>
+          <div id="deaths-chart"></div>
+          <div id="hospital-chart"></div>
+          <div id="vaccinations-chart"></div>
+          <div id="vaccinated-chart"></div>
+        </div>
+      </div>
+    </main>
+    <script type="module">
+      import browserTS from 'https://unpkg.com/browser-ts';
+      browserTS('./sw.js');
+    </script>
+    <script type="module" src="./index.ts"></script>
+  </body>
+</html>
